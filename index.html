@@ -625,7 +625,7 @@ async function generateDocument() {
         plan.push({ topicName, subName, blocks: subtopics[subName] });
       }
     }
-    const tipsSource = EXAM_DATA.examTips.filter(b => {
+    const tipsSource = (currentExam.examTips || []).filter(b => {
       if (b.type === 'p' && b.runs.length === 1 && b.runs[0].type === 'text' && b.runs[0].text.trim() === 'Exam Tips:') {
         return false;
       }
